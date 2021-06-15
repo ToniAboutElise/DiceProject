@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97bfd25e1e6e7548989da3ab44efe5a, type: 2}
+  - {fileID: 2100000, guid: 4537a7041d625bf4fa8363b35196c6ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc04295f436d0748a73ebd70bd165cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceTextures:
-    white: {fileID: 2800000, guid: be1624d85e7888c4885ee6f6c2ba7f43, type: 3}
-    red: {fileID: 2800000, guid: 9b1418aecbb21244f9fad38500a5e5b8, type: 3}
-    black: {fileID: 2800000, guid: 62606fd929525294891b9eee2cf5998e, type: 3}
-    alien: {fileID: 2800000, guid: 863e28bdcb25d52449539d287c7d7005, type: 3}
+  diceMaterials:
+    white: {fileID: 2100000, guid: 4537a7041d625bf4fa8363b35196c6ea, type: 2}
+    red: {fileID: 2100000, guid: b196289d3f20f214d8c2ada89e7a436f, type: 2}
+    black: {fileID: 2100000, guid: 8a489e9de94dd6444898e178116e8a08, type: 2}
+    alien: {fileID: 2100000, guid: 798bca8b219965a49a521dc650ed72c6, type: 2}

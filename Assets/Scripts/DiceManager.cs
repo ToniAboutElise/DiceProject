@@ -78,7 +78,7 @@ public class DiceManager : MonoBehaviour
             case "white":
                 foreach(DraggableDice dd in diceList)
                 {
-                    dd.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", dd.diceTextures.white);
+                    dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.white;
                     if(textureHasBeenSet == false)
                     {
                         currentDiceColor = "white";
@@ -89,7 +89,7 @@ public class DiceManager : MonoBehaviour
             case "red":
                 foreach (DraggableDice dd in diceList)
                 {
-                    dd.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", dd.diceTextures.red);
+                    dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.red;
                     if (textureHasBeenSet == false)
                     {
                         currentDiceColor = "red";
@@ -100,7 +100,7 @@ public class DiceManager : MonoBehaviour
             case "black":
                 foreach (DraggableDice dd in diceList)
                 {
-                    dd.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", dd.diceTextures.black);
+                    dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.black;
                     if (textureHasBeenSet == false)
                     {
                         currentDiceColor = "black";
@@ -111,7 +111,7 @@ public class DiceManager : MonoBehaviour
             case "alien":
                 foreach (DraggableDice dd in diceList)
                 {
-                    dd.GetComponent<MeshRenderer>().material.SetTexture("_BaseMap", dd.diceTextures.alien);
+                    dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.alien;
                     if (textureHasBeenSet == false)
                     {
                         currentDiceColor = "alien";

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2082791287191895869}
   - component: {fileID: 2082791287191895868}
   m_Layer: 0
-  m_Name: prototypeD20
+  m_Name: d20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c0e5b588bdde59543bff07b4514f8848, type: 2}
+  - {fileID: 2100000, guid: 77c7f834697a16f4b91687ac3d160627, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -143,8 +143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc04295f436d0748a73ebd70bd165cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  diceTextures:
-    white: {fileID: 2800000, guid: 7505518ee9ee8494db68271e0aa5e89f, type: 3}
-    red: {fileID: 2800000, guid: 67dfe7f8db149174aa875226157b01e2, type: 3}
-    black: {fileID: 2800000, guid: 45676c798f11e9341bc798f0e7c58462, type: 3}
-    alien: {fileID: 2800000, guid: c46268e1f7a6ff8459c30704d0fd64e4, type: 3}
+  diceMaterials:
+    white: {fileID: 2100000, guid: 77c7f834697a16f4b91687ac3d160627, type: 2}
+    red: {fileID: 2100000, guid: 4fe961197bdcfc74cb8088da53ba6e2e, type: 2}
+    black: {fileID: 2100000, guid: 0d9c01c7c9124854783412be249ea41c, type: 2}
+    alien: {fileID: 2100000, guid: 7f557d65e6f8c474281b7d7b7d27fdbf, type: 2}

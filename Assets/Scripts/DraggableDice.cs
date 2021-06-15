@@ -15,15 +15,15 @@ public class DraggableDice : MonoBehaviour
     protected bool canRotateWithAcceleration = true;
     protected bool waitingForSingleRoll = false;
 
-    public DiceTextures diceTextures;
+    public DiceMaterials diceMaterials;
 
     [System.Serializable]
-    public struct DiceTextures
+    public struct DiceMaterials
     {
-        public Texture white;
-        public Texture red;
-        public Texture black;
-        public Texture alien;
+        public Material white;
+        public Material red;
+        public Material black;
+        public Material alien;
     }
 
     void OnMouseDown()
