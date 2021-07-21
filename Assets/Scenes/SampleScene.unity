@@ -551,7 +551,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166.0127, y: -17.340109}
+  m_AnchoredPosition: {x: 166.0127, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &270641526
@@ -1000,6 +1000,7 @@ GameObject:
   - component: {fileID: 406354741}
   - component: {fileID: 406354740}
   - component: {fileID: 406354739}
+  - component: {fileID: 406354742}
   m_Layer: 5
   m_Name: 2
   m_TagString: Untagged
@@ -1069,9 +1070,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 835494135}
-        m_MethodName: SpawnDice
-        m_Mode: 5
+      - m_Target: {fileID: 406354742}
+        m_MethodName: SetTexture
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1116,6 +1117,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 406354737}
   m_CullTransparentMesh: 0
+--- !u!114 &406354742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 406354737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f6e964536d9994fbc2656089bee7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 1581112039}
+  texture: {fileID: 2800000, guid: ccf921de5f59f5e42a7c953f92ee3953, type: 3}
 --- !u!1 &497124650
 GameObject:
   m_ObjectHideFlags: 0
@@ -1641,7 +1656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 623.9132, y: -17.340109}
+  m_AnchoredPosition: {x: 623.9132, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615195364
@@ -1800,7 +1815,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 394.96295, y: -17.340109}
+  m_AnchoredPosition: {x: 394.96295, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663995416
@@ -1929,7 +1944,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51.537563, y: -17.340109}
+  m_AnchoredPosition: {x: 51.537563, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679162733
@@ -2988,7 +3003,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.48782, y: -17.340109}
+  m_AnchoredPosition: {x: 280.48782, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978839787
@@ -3093,6 +3108,7 @@ GameObject:
   - component: {fileID: 989384969}
   - component: {fileID: 989384968}
   - component: {fileID: 989384967}
+  - component: {fileID: 989384970}
   m_Layer: 5
   m_Name: 3
   m_TagString: Untagged
@@ -3108,7 +3124,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989384965}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1.8884e-10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.7802267, y: 1.7802267, z: 1.7802267}
   m_Children: []
   m_Father: {fileID: 1915513578}
@@ -3162,9 +3178,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 835494135}
-        m_MethodName: SpawnDice
-        m_Mode: 5
+      - m_Target: {fileID: 989384970}
+        m_MethodName: SetTexture
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3209,6 +3225,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 989384965}
   m_CullTransparentMesh: 0
+--- !u!114 &989384970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 989384965}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f6e964536d9994fbc2656089bee7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 1581112039}
+  texture: {fileID: 2800000, guid: 8139b14681479e644a3311ff11482ed8, type: 3}
 --- !u!1 &1027693830
 GameObject:
   m_ObjectHideFlags: 0
@@ -3221,6 +3251,7 @@ GameObject:
   - component: {fileID: 1027693834}
   - component: {fileID: 1027693833}
   - component: {fileID: 1027693832}
+  - component: {fileID: 1027693835}
   m_Layer: 5
   m_Name: 4
   m_TagString: Untagged
@@ -3290,9 +3321,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 835494135}
-        m_MethodName: SpawnDice
-        m_Mode: 5
+      - m_Target: {fileID: 1027693835}
+        m_MethodName: SetTexture
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3337,6 +3368,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027693830}
   m_CullTransparentMesh: 0
+--- !u!114 &1027693835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027693830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f6e964536d9994fbc2656089bee7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 1581112039}
+  texture: {fileID: 2800000, guid: 4f9ef6a3faa51dc43adb80d2359da3c3, type: 3}
 --- !u!1 &1040549783
 GameObject:
   m_ObjectHideFlags: 0
@@ -3784,6 +3829,7 @@ GameObject:
   - component: {fileID: 1082910213}
   - component: {fileID: 1082910212}
   - component: {fileID: 1082910211}
+  - component: {fileID: 1082910214}
   m_Layer: 5
   m_Name: 1
   m_TagString: Untagged
@@ -3853,9 +3899,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 835494135}
-        m_MethodName: SpawnDice
-        m_Mode: 5
+      - m_Target: {fileID: 1082910214}
+        m_MethodName: SetTexture
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3900,6 +3946,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1082910209}
   m_CullTransparentMesh: 0
+--- !u!114 &1082910214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1082910209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58f6e964536d9994fbc2656089bee7fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 1581112039}
+  texture: {fileID: 2800000, guid: 401a27e6fa169f845b24cc66c3a12fd0, type: 3}
 --- !u!1 &1086533702
 GameObject:
   m_ObjectHideFlags: 0
@@ -4046,7 +4106,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: -1
+  m_SortingOrder: 62
   m_TargetDisplay: 0
 --- !u!224 &1122910754
 RectTransform:
@@ -4419,7 +4479,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 738.38837, y: -17.340109}
+  m_AnchoredPosition: {x: 738.38837, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284296615
@@ -5528,7 +5588,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 509.43808, y: -17.340109}
+  m_AnchoredPosition: {x: 509.43808, y: -17.34011}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553939102
