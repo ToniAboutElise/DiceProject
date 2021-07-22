@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -136,7 +136,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &41012519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -550,9 +550,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 166.0127, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &270641526
@@ -1268,9 +1268,9 @@ RectTransform:
   m_Father: {fileID: 41012519}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 280.48782, y: -17.340109}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &504591633
@@ -1655,9 +1655,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 623.9132, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &615195364
@@ -1814,9 +1814,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 394.96295, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &663995416
@@ -1943,9 +1943,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 51.537563, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &679162733
@@ -3002,9 +3002,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.48782, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &978839787
@@ -4120,7 +4120,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1086533703
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4424,6 +4424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc04295f436d0748a73ebd70bd165cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diceAudioSource: {fileID: 0}
   diceMaterials:
     white: {fileID: 0}
     red: {fileID: 0}
@@ -4493,9 +4494,9 @@ RectTransform:
   m_Father: {fileID: 41012519}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 166.0127, y: -17.340109}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1207433129
@@ -4622,9 +4623,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 738.38837, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284296615
@@ -5139,6 +5140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc04295f436d0748a73ebd70bd165cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diceAudioSource: {fileID: 0}
   diceMaterials:
     white: {fileID: 0}
     red: {fileID: 0}
@@ -6030,9 +6032,9 @@ RectTransform:
   m_Father: {fileID: 1086533703}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 509.43808, y: -17.340109}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553939102
@@ -6159,9 +6161,9 @@ RectTransform:
   m_Father: {fileID: 41012519}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 51.537563, y: -17.340109}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566175307
@@ -7026,9 +7028,9 @@ RectTransform:
   m_Father: {fileID: 41012519}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 509.43808, y: -17.340109}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1694175911
@@ -7310,9 +7312,9 @@ RectTransform:
   m_Father: {fileID: 41012519}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 394.96295, y: -17.340109}
   m_SizeDelta: {x: 57.9, y: 42.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836509653
@@ -7517,6 +7519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc04295f436d0748a73ebd70bd165cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diceAudioSource: {fileID: 0}
   diceMaterials:
     white: {fileID: 0}
     red: {fileID: 0}

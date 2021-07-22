@@ -15,6 +15,9 @@ public class DraggableDice : MonoBehaviour
     protected bool canRotateWithAcceleration = true;
     protected bool waitingForSingleRoll = false;
 
+    public AudioSource diceAudioSource;
+    protected bool canPlayAudio = true;
+
     public DiceMaterials diceMaterials;
 
     [System.Serializable]
@@ -79,6 +82,25 @@ public class DraggableDice : MonoBehaviour
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(diceAudioSource.isPlaying == false && canPlayAudio == true)
+        {
+            canPlayAudio = false;
+            StartCoroutine(AudioCoolDownCR());
+            diceAudioSource.pitch = 1;
+            float rand = Random.Range(-0.25f, 0.25f);
+            diceAudioSource.pitch += rand;
+            diceAudioSource.Play();
+        }
+    }
+
+    protected IEnumerator AudioCoolDownCR()
+    {
+        yield return new WaitForSeconds(0.2f);
+        canPlayAudio = true;
     }
 
     private void Update()
