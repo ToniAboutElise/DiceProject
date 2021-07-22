@@ -24,6 +24,7 @@ public class DraggableDice : MonoBehaviour
         public Material red;
         public Material black;
         public Material alien;
+        public Material blue;
     }
 
     void OnMouseDown()

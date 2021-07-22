@@ -119,6 +119,17 @@ public class DiceManager : MonoBehaviour
                     }
                 }
                 break;
+            case "blue":
+                foreach (DraggableDice dd in diceList)
+                {
+                    dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.blue;
+                    if (textureHasBeenSet == false)
+                    {
+                        currentDiceColor = "blue";
+                        textureHasBeenSet = true;
+                    }
+                }
+                break;
         }
     }
 

@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5537136202016726308}
   - component: {fileID: 5537136202016726312}
   m_Layer: 0
-  m_Name: prototypeD6
+  m_Name: d6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -147,3 +147,4 @@ MonoBehaviour:
     red: {fileID: 2100000, guid: ac95d22809bff0f4f980271d9ff6948f, type: 2}
     black: {fileID: 2100000, guid: 11746010c59b4754aa3d36ddbf0b1412, type: 2}
     alien: {fileID: 2100000, guid: 1e984dc81639e6f49bfb0a624862dec0, type: 2}
+    blue: {fileID: 2100000, guid: b05a7e6ae8b51344e8e157354c99784d, type: 2}

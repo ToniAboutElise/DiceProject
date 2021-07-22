@@ -134,6 +134,7 @@ MonoBehaviour:
     red: {fileID: 2100000, guid: 64917a3e2c2b25a479828f6c3249a319, type: 2}
     black: {fileID: 2100000, guid: 281636522ce72ed4581057dede5c54a9, type: 2}
     alien: {fileID: 2100000, guid: ae19ebdbdd9feb9418e80459aa2f1bb3, type: 2}
+    blue: {fileID: 2100000, guid: 9050b2537a6e7bd4297bfa58cd306718, type: 2}
 --- !u!64 &217359280170263439
 MeshCollider:
   m_ObjectHideFlags: 0

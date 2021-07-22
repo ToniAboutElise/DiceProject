@@ -148,3 +148,4 @@ MonoBehaviour:
     red: {fileID: 2100000, guid: 4fe961197bdcfc74cb8088da53ba6e2e, type: 2}
     black: {fileID: 2100000, guid: 0d9c01c7c9124854783412be249ea41c, type: 2}
     alien: {fileID: 2100000, guid: 7f557d65e6f8c474281b7d7b7d27fdbf, type: 2}
+    blue: {fileID: 2100000, guid: 1ffbbd150e5310848b0a1cece39f48e9, type: 2}
