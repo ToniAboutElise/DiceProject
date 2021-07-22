@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class DiceManager : MonoBehaviour
 {
-    public GameObject capsule;
-    public GameObject dice;
-
     public GameObject diceD3;
     public GameObject diceD4;
     public GameObject diceD6;
@@ -19,18 +16,6 @@ public class DiceManager : MonoBehaviour
     public List<DraggableDice> diceList;
 
     public string currentDiceColor = "white";
-
-    protected void DiceAppearToPoint()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
-            GameObject instance = Instantiate(dice);
-            touchPosition.z = dice.transform.position.z;
-            instance.transform.localPosition = touch.position;
-        }
-    }
 
     public void SpawnDice(string dice)
     {
@@ -141,10 +126,10 @@ public class DiceManager : MonoBehaviour
         diceList.Clear();
     }
 
+#if UNITY_EDITOR
     private void Update()
     {
-        DiceAppearToPoint();
-#if UNITY_EDITOR
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeDiceColor("white");
@@ -157,6 +142,7 @@ public class DiceManager : MonoBehaviour
         {
             ChangeDiceColor("black");
         }
-#endif
+
     }
+#endif
 }
