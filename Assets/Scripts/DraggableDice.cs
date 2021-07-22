@@ -81,7 +81,6 @@ public class DraggableDice : MonoBehaviour
 
         Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
         transform.position = curPosition;
-
     }
 
     private void OnCollisionEnter(Collision collision)

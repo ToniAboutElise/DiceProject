@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class DiceManager : MonoBehaviour
 {
-    public List<Rigidbody> dicesRB;
-    public Text infoText;
     public GameObject capsule;
     public GameObject dice;
 
@@ -31,7 +29,6 @@ public class DiceManager : MonoBehaviour
             GameObject instance = Instantiate(dice);
             touchPosition.z = dice.transform.position.z;
             instance.transform.localPosition = touch.position;
-            infoText.text = touch.position.ToString();
         }
     }
 
