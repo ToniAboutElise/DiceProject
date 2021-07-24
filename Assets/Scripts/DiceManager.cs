@@ -115,6 +115,14 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+    public void RollButton()
+    {
+        foreach(DraggableDice d in diceList)
+        {
+            d.SingleRollCall();
+        }
+    }
+
     public void ClearDices()
     {
         DraggableDice[] dices = FindObjectsOfType<DraggableDice>();

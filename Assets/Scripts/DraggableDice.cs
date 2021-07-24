@@ -46,8 +46,12 @@ public class DraggableDice : MonoBehaviour
 
     private void OnMouseUp()
     {
-        //StartCoroutine(RollDice());
         StartCoroutine(SingleRoll());
+    }
+
+    public void SingleRollCall()
+    {
+        StartCoroutine(RollDice());
     }
 
     protected IEnumerator SingleRoll()
