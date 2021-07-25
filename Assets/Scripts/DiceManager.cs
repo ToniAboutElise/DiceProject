@@ -134,6 +134,11 @@ public class DiceManager : MonoBehaviour
         diceList.Clear();
     }
 
+    public void ExitApp()
+    {
+        Application.Quit();
+    }
+
 #if UNITY_EDITOR
     private void Update()
     {
