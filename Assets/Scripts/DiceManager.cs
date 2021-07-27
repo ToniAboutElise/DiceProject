@@ -162,6 +162,7 @@ public class DiceManager : MonoBehaviour
 
     public void DisplayResult()
     {
+        resultText.text = "";
         int finalResult = 0;
         foreach(DraggableDice dd in diceList)
         {
@@ -199,6 +200,11 @@ public class DiceManager : MonoBehaviour
     {
 
         if (Input.acceleration.x > 3f)
+        {
+            RollButton();
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
         {
             RollButton();
         }

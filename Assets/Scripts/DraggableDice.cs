@@ -130,19 +130,20 @@ public class DraggableDice : MonoBehaviour
             StartCoroutine(RollDice());
         }
 #endif
-
+        /*
         if(Input.acceleration.x > 3f && canRotateWithAcceleration == true)
         {
             StartCoroutine(RollDice());
         }
-
+        */
         if(canRotate == true)
         transform.Rotate(new Vector3(90*Time.deltaTime * randX, 90*Time.deltaTime * randY, 90*Time.deltaTime * randZ), Space.Self);
-
+        /*
         if(GetComponent<Rigidbody>().velocity.x > 3f && canRotate == true && canRotateWithAcceleration == true)
         {
             StartCoroutine(RollDice());
         }
+        */
     }
 
 }
