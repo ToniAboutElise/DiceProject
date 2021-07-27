@@ -19,6 +19,10 @@ public class DiceManager : MonoBehaviour
     public Text finalResultText;
     public Text resultText;
 
+    public AudioSource failAudioSource;
+
+    protected float resultWaitExpiration = 0;
+
     public string currentDiceColor = "white";
 
     private void Start()
@@ -131,6 +135,7 @@ public class DiceManager : MonoBehaviour
         {
             d.SingleRollCall();
         }
+        resultWaitExpiration = 0;
         StartCoroutine(WaitForResult());
     }
 
@@ -148,16 +153,25 @@ public class DiceManager : MonoBehaviour
             }
         }
 
-        if(allResultsReady == true)
+        resultWaitExpiration += 0.15f;
+
+        if(resultWaitExpiration >= 1)
         {
-            DisplayResult();
+            ClearDices();
             StopCoroutine(WaitForResult());
         }
         else
         {
-            StartCoroutine(WaitForResult());
+            if (allResultsReady == true)
+            {
+                DisplayResult();
+                StopCoroutine(WaitForResult());
+            }
+            else
+            {
+                StartCoroutine(WaitForResult());
+            }
         }
-
     }
 
     public void DisplayResult()
@@ -173,7 +187,17 @@ public class DiceManager : MonoBehaviour
                 return;
             }
             resultText.text += dd.result + "(" + dd.dieName + ") ";
-            finalResult += int.Parse(dd.result);
+            if(dd.result != null)
+            {
+                int result;
+                System.Int32.TryParse(dd.result, out result);
+                Debug.Log(result);
+                finalResult += result;
+            }
+            else
+            {
+                ClearDices();
+            }
         }
         finalResultText.text = finalResult.ToString();
         finalResultDisplayUI.SetActive(true);
@@ -181,6 +205,12 @@ public class DiceManager : MonoBehaviour
 
     public void ClearDices()
     {
+        if(resultWaitExpiration >= 1)
+        { 
+            failAudioSource.Play();
+            resultWaitExpiration = 0;
+        }
+
         DraggableDice[] dices = FindObjectsOfType<DraggableDice>();
 
         foreach(DraggableDice d in dices)
@@ -221,6 +251,10 @@ public class DiceManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             ChangeDiceColor("black");
+        }
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            failAudioSource.Play();
         }
 #endif
     }
