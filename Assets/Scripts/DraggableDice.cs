@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DraggableDice : MonoBehaviour
 {
+    public DiceManager diceManager;
+
     private Vector3 screenPoint;
     private Vector3 offset;
 
@@ -19,6 +21,10 @@ public class DraggableDice : MonoBehaviour
     protected bool canPlayAudio = true;
 
     public DiceMaterials diceMaterials;
+
+    public List<DieFace> facesList;
+    public string dieName;
+    public string result;
 
     [System.Serializable]
     public struct DiceMaterials
@@ -77,6 +83,16 @@ public class DraggableDice : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         canRotate = false;
         canRotateWithAcceleration = true;
+        yield return new WaitForSeconds(1.4f);
+        CheckResult();
+    }
+
+    protected void CheckResult()
+    {
+        if(result == null)
+        {
+            StartCoroutine(RollDice());
+        }
     }
 
     void OnMouseDrag()

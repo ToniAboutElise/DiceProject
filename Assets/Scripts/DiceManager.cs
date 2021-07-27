@@ -15,7 +15,16 @@ public class DiceManager : MonoBehaviour
     public Transform[] diceSpawnTransform;
     public List<DraggableDice> diceList;
 
+    public GameObject finalResultDisplayUI;
+    public Text finalResultText;
+    public Text resultText;
+
     public string currentDiceColor = "white";
+
+    private void Start()
+    {
+        finalResultDisplayUI.SetActive(false);
+    }
 
     public void SpawnDice(string dice)
     {
@@ -49,6 +58,7 @@ public class DiceManager : MonoBehaviour
 
         diceInstance.transform.position = diceSpawnTransform[rand].position;
         diceList.Add(diceInstance.GetComponent<DraggableDice>());
+        diceInstance.GetComponent<DraggableDice>().diceManager = this;
         ChangeDiceColor(currentDiceColor);
     }
 
@@ -121,6 +131,51 @@ public class DiceManager : MonoBehaviour
         {
             d.SingleRollCall();
         }
+        StartCoroutine(WaitForResult());
+    }
+
+    public IEnumerator WaitForResult()
+    {
+        bool allResultsReady = true;
+
+        yield return new WaitForSeconds(2.6f);
+
+        foreach (DraggableDice dd in diceList)
+        {
+            if(dd.result == null)
+            {
+                allResultsReady = false;
+            }
+        }
+
+        if(allResultsReady == true)
+        {
+            DisplayResult();
+            StopCoroutine(WaitForResult());
+        }
+        else
+        {
+            StartCoroutine(WaitForResult());
+        }
+
+    }
+
+    public void DisplayResult()
+    {
+        int finalResult = 0;
+        foreach(DraggableDice dd in diceList)
+        {
+            if(dd.result == null)
+            {
+                dd.SingleRollCall();
+                StartCoroutine(WaitForResult());
+                return;
+            }
+            resultText.text += dd.result + "(" + dd.dieName + ") ";
+            finalResult += int.Parse(dd.result);
+        }
+        finalResultText.text = finalResult.ToString();
+        finalResultDisplayUI.SetActive(true);
     }
 
     public void ClearDices()
@@ -139,10 +194,16 @@ public class DiceManager : MonoBehaviour
         Application.Quit();
     }
 
-#if UNITY_EDITOR
+
     private void Update()
     {
 
+        if (Input.acceleration.x > 3f)
+        {
+            RollButton();
+        }
+
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             ChangeDiceColor("white");
@@ -155,7 +216,7 @@ public class DiceManager : MonoBehaviour
         {
             ChangeDiceColor("black");
         }
-
-    }
 #endif
+    }
+
 }

@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dc04295f436d0748a73ebd70bd165cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  diceManager: {fileID: 0}
   diceAudioSource: {fileID: 4488060975233683399}
   diceMaterials:
     white: {fileID: 2100000, guid: 44c2180055ec9294d9fece13e07ae25c, type: 2}
@@ -151,6 +152,9 @@ MonoBehaviour:
     black: {fileID: 2100000, guid: ad8bd71dd994e6d4d89253a91c2373f0, type: 2}
     alien: {fileID: 2100000, guid: 7149beb6ab8eb1d408a730e6dd0f458f, type: 2}
     blue: {fileID: 2100000, guid: 5ef72334abc146647bdfb30b0fb3b405, type: 2}
+  facesList: []
+  dieName: D8
+  result: 
 --- !u!82 &4488060975233683399
 AudioSource:
   m_ObjectHideFlags: 0
