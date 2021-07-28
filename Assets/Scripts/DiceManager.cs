@@ -21,6 +21,9 @@ public class DiceManager : MonoBehaviour
 
     public AudioSource failAudioSource;
 
+    public List<GameObject> failSentences;
+    int currentFail = 0;
+
     protected float resultWaitExpiration = 0;
 
     public string currentDiceColor = "white";
@@ -61,6 +64,7 @@ public class DiceManager : MonoBehaviour
         int rand = Random.Range(0, diceSpawnTransform.Length);
 
         diceInstance.transform.position = diceSpawnTransform[rand].position;
+        diceInstance.transform.rotation = new Quaternion(Random.Range(0, 360), Random.Range(0, 360), Random.Range(0, 360), 0);
         diceList.Add(diceInstance.GetComponent<DraggableDice>());
         diceInstance.GetComponent<DraggableDice>().diceManager = this;
         ChangeDiceColor(currentDiceColor);
@@ -147,9 +151,16 @@ public class DiceManager : MonoBehaviour
 
         foreach (DraggableDice dd in diceList)
         {
-            if(dd.result == null)
+            int result;
+            System.Int32.TryParse(dd.result, out result);
+
+            if (dd.result == null || (result <= 0 || result > 20))
             {
                 allResultsReady = false;
+                if((result <= 0 || result > 20))
+                {
+                    dd.SingleRollCall();
+                }
             }
         }
 
@@ -206,7 +217,8 @@ public class DiceManager : MonoBehaviour
     public void ClearDices()
     {
         if(resultWaitExpiration >= 1)
-        { 
+        {
+            StartCoroutine(FailSentenceSequence());
             failAudioSource.Play();
             resultWaitExpiration = 0;
         }
@@ -218,6 +230,17 @@ public class DiceManager : MonoBehaviour
             Destroy(d.gameObject);
         }
         diceList.Clear();
+    }
+
+    public IEnumerator FailSentenceSequence()
+    {
+        failSentences[currentFail].SetActive(true);
+        yield return new WaitForSeconds(5);
+        failSentences[currentFail].SetActive(false);
+        if(currentFail < failSentences.Count-1) 
+        { 
+            currentFail++;
+        }
     }
 
     public void ExitApp()
