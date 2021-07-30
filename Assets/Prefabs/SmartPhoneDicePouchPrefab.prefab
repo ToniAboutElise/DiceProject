@@ -3623,6 +3623,13 @@ MonoBehaviour:
   canRoll: 1
   failAudioSource: {fileID: 6853625585359225425}
   clearButton: {fileID: 6853625585215942907}
+  diceButtonList:
+  - {fileID: 6853625584617311281}
+  - {fileID: 6853625583683655210}
+  - {fileID: 6853625584313440183}
+  - {fileID: 6853625584527620932}
+  - {fileID: 6853625584946300354}
+  - {fileID: 6853625584547061176}
   failSentences:
   - {fileID: 6853625584735365927}
   - {fileID: 6853625585133247209}

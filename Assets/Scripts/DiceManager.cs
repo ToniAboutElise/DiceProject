@@ -27,6 +27,7 @@ public class DiceManager : MonoBehaviour
     public AudioSource failAudioSource;
 
     public Button clearButton;
+    public List<Button> diceButtonList;
 
     public List<GameObject> failSentences;
     int currentFail = 0;
@@ -152,6 +153,12 @@ public class DiceManager : MonoBehaviour
         if(canRoll == true && diceList.Count != 0)
         {
             clearButton.interactable = false;
+
+            foreach(Button b in diceButtonList)
+            {
+                b.interactable = false;
+            }
+
             canRoll = false;
             foreach(DraggableDice d in diceList)
             {
@@ -253,6 +260,12 @@ public class DiceManager : MonoBehaviour
             StopCoroutine(WaitForResult());
             canRoll = true;
             clearButton.interactable = true;
+
+            foreach (Button b in diceButtonList)
+            {
+                b.interactable = true;
+            }
+
     }
 
     public IEnumerator FailSentenceSequence()
