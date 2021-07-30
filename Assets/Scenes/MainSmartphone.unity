@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -126,6 +126,18 @@ Light:
     type: 3}
   m_PrefabInstance: {fileID: 6853625583950102364}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &966574569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6853625585215942907, guid: fb76f37632f8eb24d8f5117c6233cd44,
+    type: 3}
+  m_PrefabInstance: {fileID: 6853625583950102364}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6853625583950102364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -208,6 +220,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6853625584221904811, guid: fb76f37632f8eb24d8f5117c6233cd44,
+        type: 3}
+      propertyPath: clearButton
+      value: 
+      objectReference: {fileID: 966574569}
     - target: {fileID: 6853625584313440182, guid: fb76f37632f8eb24d8f5117c6233cd44,
         type: 3}
       propertyPath: m_AnchorMin.y

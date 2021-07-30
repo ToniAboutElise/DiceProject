@@ -3622,6 +3622,7 @@ MonoBehaviour:
   diceLimitMessage: {fileID: 6853625584336219113}
   canRoll: 1
   failAudioSource: {fileID: 6853625585359225425}
+  clearButton: {fileID: 6853625585215942907}
   failSentences:
   - {fileID: 6853625584735365927}
   - {fileID: 6853625585133247209}
