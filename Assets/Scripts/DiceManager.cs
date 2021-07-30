@@ -19,7 +19,14 @@ public class DiceManager : MonoBehaviour
     public Text finalResultText;
     public Text resultText;
 
+    public int diceLimit;
+    public Animation diceLimitMessage;
+
+    public bool canRoll = true;
+
     public AudioSource failAudioSource;
+
+    public Button clearButton;
 
     public List<GameObject> failSentences;
     int currentFail = 0;
@@ -31,10 +38,17 @@ public class DiceManager : MonoBehaviour
     private void Start()
     {
         finalResultDisplayUI.SetActive(false);
+        SetDiceLimit();
     }
 
     public void SpawnDice(string dice)
     {
+        if (HasDiceLimitBeenReached() == true)
+        {
+            HasDiceLimitBeenReached();
+            return;
+        }
+
         GameObject diceInstance = null;
         switch (dice)
         {
@@ -76,56 +90,56 @@ public class DiceManager : MonoBehaviour
         switch (color)
         {
             case "white":
-                foreach(DraggableDice dd in diceList)
+                currentDiceColor = "white";
+                foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.white;
                     if(textureHasBeenSet == false)
                     {
-                        currentDiceColor = "white";
                         textureHasBeenSet = true;
                     }
                 }
                 break;
             case "red":
+                currentDiceColor = "red";
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.red;
                     if (textureHasBeenSet == false)
                     {
-                        currentDiceColor = "red";
                         textureHasBeenSet = true;
                     }
                 }
                 break;
             case "black":
+                currentDiceColor = "black";
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.black;
                     if (textureHasBeenSet == false)
                     {
-                        currentDiceColor = "black";
                         textureHasBeenSet = true;
                     }
                 }
                 break;
             case "alien":
+                currentDiceColor = "alien";
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.alien;
                     if (textureHasBeenSet == false)
                     {
-                        currentDiceColor = "alien";
                         textureHasBeenSet = true;
                     }
                 }
                 break;
             case "blue":
+                currentDiceColor = "blue";
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.blue;
                     if (textureHasBeenSet == false)
                     {
-                        currentDiceColor = "blue";
                         textureHasBeenSet = true;
                     }
                 }
@@ -135,12 +149,17 @@ public class DiceManager : MonoBehaviour
 
     public void RollButton()
     {
-        foreach(DraggableDice d in diceList)
+        if(canRoll == true && diceList.Count != 0)
         {
-            d.SingleRollCall();
+            clearButton.interactable = false;
+            canRoll = false;
+            foreach(DraggableDice d in diceList)
+            {
+                d.SingleRollCall();
+            }
+            resultWaitExpiration = 0;
+            StartCoroutine(WaitForResult());
         }
-        resultWaitExpiration = 0;
-        StartCoroutine(WaitForResult());
     }
 
     public IEnumerator WaitForResult()
@@ -212,24 +231,28 @@ public class DiceManager : MonoBehaviour
         }
         finalResultText.text = finalResult.ToString();
         finalResultDisplayUI.SetActive(true);
+        canRoll = true;
     }
 
     public void ClearDices()
     {
-        if(resultWaitExpiration >= 1)
-        {
-            StartCoroutine(FailSentenceSequence());
-            failAudioSource.Play();
-            resultWaitExpiration = 0;
-        }
+            if(resultWaitExpiration >= 1)
+            {
+                StartCoroutine(FailSentenceSequence());
+                failAudioSource.Play();
+                resultWaitExpiration = 0;
+            }
 
-        DraggableDice[] dices = FindObjectsOfType<DraggableDice>();
+            DraggableDice[] dices = FindObjectsOfType<DraggableDice>();
 
-        foreach(DraggableDice d in dices)
-        {
-            Destroy(d.gameObject);
-        }
-        diceList.Clear();
+            foreach(DraggableDice d in dices)
+            {
+                Destroy(d.gameObject);
+            }
+            diceList.Clear();
+            StopCoroutine(WaitForResult());
+            canRoll = true;
+            clearButton.interactable = true;
     }
 
     public IEnumerator FailSentenceSequence()
@@ -243,6 +266,37 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+    public void LoadURL(string url)
+    {
+        Application.OpenURL(url);
+    }
+
+    protected void SetDiceLimit()
+    {
+#if UNITY_STANDALONE_WIN || UNITY_WEBGL
+        diceLimit = 60;
+#elif UNITY_ANDROID
+        diceLimit = 30;
+#endif
+    }
+
+    protected bool HasDiceLimitBeenReached()
+    {
+        if(diceList.Count == diceLimit)
+        {
+            if(diceLimitMessage.isPlaying == false)
+            { 
+                diceLimitMessage.Play();
+            }
+            return true;
+        }
+        else
+        {
+            Debug.Log(diceList.Count + " | " + diceLimit);
+            return false;
+        }
+    }
+
     public void ExitApp()
     {
         Application.Quit();
@@ -251,7 +305,6 @@ public class DiceManager : MonoBehaviour
 
     private void Update()
     {
-
         if (Input.acceleration.x > 3f)
         {
             RollButton();
@@ -281,5 +334,4 @@ public class DiceManager : MonoBehaviour
         }
 #endif
     }
-
 }

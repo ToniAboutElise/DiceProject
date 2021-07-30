@@ -78,8 +78,6 @@ public class DraggableDice : MonoBehaviour
         GetComponent<Rigidbody>().AddForce(Vector3.up * 200);
         yield return new WaitForSeconds(0.2f);
         canRotate = true;
-        //transform.Rotate(new Vector3(90 * randX, 90 * randY, 0), Space.Self);
-        //transform.localRotation = Quaternion.Lerp(transform.localRotation, new Quaternion(90 * randX, 90 * randY, 90 * randZ, transform.localRotation.w), 4 * Time.deltaTime);
         yield return new WaitForSeconds(0.3f);
         canRotate = false;
         canRotateWithAcceleration = true;
@@ -130,20 +128,8 @@ public class DraggableDice : MonoBehaviour
             StartCoroutine(RollDice());
         }
 #endif
-        /*
-        if(Input.acceleration.x > 3f && canRotateWithAcceleration == true)
-        {
-            StartCoroutine(RollDice());
-        }
-        */
         if(canRotate == true)
         transform.Rotate(new Vector3(90*Time.deltaTime * randX, 90*Time.deltaTime * randY, 90*Time.deltaTime * randZ), Space.Self);
-        /*
-        if(GetComponent<Rigidbody>().velocity.x > 3f && canRotate == true && canRotateWithAcceleration == true)
-        {
-            StartCoroutine(RollDice());
-        }
-        */
     }
 
 }
