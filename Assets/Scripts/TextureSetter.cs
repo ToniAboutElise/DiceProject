@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class used to change background texture
+
 public class TextureSetter : MonoBehaviour
 {
     public Renderer targetRenderer;

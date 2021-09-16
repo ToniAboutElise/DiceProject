@@ -2,27 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Class to manage the behaviour of dice individually
+
 public class DraggableDice : MonoBehaviour
 {
     public DiceManager diceManager;
 
+    //Variables used for the mouse drag method
     private Vector3 screenPoint;
     private Vector3 offset;
 
+    //Random rotation values
     private int randX;
     private int randY;
     private int randZ;
 
+    //Variables used to avoid rotation instead of waiting for a new roll or reroll
     protected bool canRotate = false;
     protected bool canRotateWithAcceleration = true;
     protected bool waitingForSingleRoll = false;
 
+    //Audio variables
     public AudioSource diceAudioSource;
     protected bool canPlayAudio = true;
 
+    //Dice materials
     public DiceMaterials diceMaterials;
 
-    public List<DieFace> facesList;
+    //Face detection variables to determine result
     public string dieName;
     public string result;
 
@@ -36,6 +43,7 @@ public class DraggableDice : MonoBehaviour
         public Material blue;
     }
 
+    //This method makes a roll for a single die if a double tap is happening
     void OnMouseDown()
     {
         if(waitingForSingleRoll == false)
@@ -47,19 +55,21 @@ public class DraggableDice : MonoBehaviour
         {
             StartCoroutine(RollDice());
         }
-
     }
 
+    //Calls SingleRoll coroutine on mouse up
     private void OnMouseUp()
     {
         StartCoroutine(SingleRoll());
     }
 
+    //Calls RollDice coroutine through this method, to use it easier from another script and button if needed
     public void SingleRollCall()
     {
         StartCoroutine(RollDice());
     }
 
+    //Corroutine to allows a die roll during the specified time
     protected IEnumerator SingleRoll()
     {
         waitingForSingleRoll = true;
@@ -67,6 +77,7 @@ public class DraggableDice : MonoBehaviour
         waitingForSingleRoll = false;
     }
 
+    //Corroutine to roll die with random rotation variables
     protected IEnumerator RollDice()
     {
         canRotateWithAcceleration = false;
@@ -85,6 +96,7 @@ public class DraggableDice : MonoBehaviour
         CheckResult();
     }
 
+    //Checks result
     protected void CheckResult()
     {
         if(result == null)
@@ -93,6 +105,7 @@ public class DraggableDice : MonoBehaviour
         }
     }
 
+    //Mouse drag function, automatically translated to regular smartphone drag
     void OnMouseDrag()
     {
         Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
@@ -101,6 +114,7 @@ public class DraggableDice : MonoBehaviour
         transform.position = curPosition;
     }
 
+    //Detects if sound effect has to be played
     private void OnCollisionEnter(Collision collision)
     {
         if(diceAudioSource.isPlaying == false && canPlayAudio == true)
@@ -114,20 +128,16 @@ public class DraggableDice : MonoBehaviour
         }
     }
 
+    //Corroutine used to avoid sound effect replaying constantly
     protected IEnumerator AudioCoolDownCR()
     {
         yield return new WaitForSeconds(0.2f);
         canPlayAudio = true;
     }
 
+    //Checks constantly if die can roll
     private void Update()
     {
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.A) && canRotateWithAcceleration == true)
-        {
-            StartCoroutine(RollDice());
-        }
-#endif
         if(canRotate == true)
         transform.Rotate(new Vector3(90*Time.deltaTime * randX, 90*Time.deltaTime * randY, 90*Time.deltaTime * randZ), Space.Self);
     }

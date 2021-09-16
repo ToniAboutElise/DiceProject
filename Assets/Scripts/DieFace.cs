@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//This class determines the result of a die depending on which face is in contact with the floor
+
 public class DieFace : MonoBehaviour
 {
     public DraggableDice draggableDice;

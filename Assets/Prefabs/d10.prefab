@@ -1057,7 +1057,17 @@ MonoBehaviour:
     black: {fileID: 2100000, guid: 8531e1428a469334e87ff3b715fe402e, type: 2}
     alien: {fileID: 2100000, guid: 75b6d7dd0c4184f4493a5628885a83ff, type: 2}
     blue: {fileID: 2100000, guid: f41980809ec09484e93c7579cc92f805, type: 2}
-  facesList: []
+  facesList:
+  - {fileID: 9203752950562676856}
+  - {fileID: 5480148145233859869}
+  - {fileID: 1980198550069717602}
+  - {fileID: 6748441960765094980}
+  - {fileID: 8311931563469475461}
+  - {fileID: 389713371324975158}
+  - {fileID: 8098566477275341557}
+  - {fileID: 7865410610055424536}
+  - {fileID: 5266479318267399107}
+  - {fileID: 1581363359397129309}
   dieName: D10
   result: 
 --- !u!82 &2306198791513149993

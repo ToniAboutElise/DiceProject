@@ -839,7 +839,15 @@ MonoBehaviour:
     black: {fileID: 2100000, guid: ad8bd71dd994e6d4d89253a91c2373f0, type: 2}
     alien: {fileID: 2100000, guid: 7149beb6ab8eb1d408a730e6dd0f458f, type: 2}
     blue: {fileID: 2100000, guid: 5ef72334abc146647bdfb30b0fb3b405, type: 2}
-  facesList: []
+  facesList:
+  - {fileID: 5784713305237360939}
+  - {fileID: 6700464000544054445}
+  - {fileID: 8627256497274587679}
+  - {fileID: 2615141767973181664}
+  - {fileID: 7267001084335476199}
+  - {fileID: 330496398629330334}
+  - {fileID: 852950837260656656}
+  - {fileID: 5163764503621949487}
   dieName: D8
   result: 
 --- !u!82 &4488060975233683399

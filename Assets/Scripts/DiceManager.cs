@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DiceManager : MonoBehaviour
 {
+    //Dice prefabs
     public GameObject diceD3;
     public GameObject diceD4;
     public GameObject diceD6;
@@ -12,36 +13,52 @@ public class DiceManager : MonoBehaviour
     public GameObject diceD10;
     public GameObject diceD12;
     public GameObject diceD20;
+
+    //Dice position spawners
     public Transform[] diceSpawnTransform;
+
+    //Spawned dice list
     public List<DraggableDice> diceList;
 
+    //Final result UI elements
     public GameObject finalResultDisplayUI;
     public Text finalResultText;
     public Text resultText;
 
+    //Dice limit variables
     public int diceLimit;
     public Animation diceLimitMessage;
 
+    //Boolean to manage if a roll is allowed
     public bool canRoll = true;
 
+    //Sound effect that will play if too many rerolls are needed
     public AudioSource failAudioSource;
 
+    //Clear button to delete all dice from the scene and the diceList
     public Button clearButton;
+    
+    //Button list used to set buttons as non interactable during specific moments to avoid bugs
     public List<Button> diceButtonList;
 
+    //Fail sentences variables
     public List<GameObject> failSentences;
     int currentFail = 0;
 
+    //float used to wait for rerolls until a fail happens
     protected float resultWaitExpiration = 0;
 
+    //Current color, set to white by default
     public string currentDiceColor = "white";
 
+    //Hides specified UI elements and sets dice limit depending on the platform
     private void Start()
     {
         finalResultDisplayUI.SetActive(false);
         SetDiceLimit();
     }
 
+    //Die Spawner
     public void SpawnDice(string dice)
     {
         if (HasDiceLimitBeenReached() == true)
@@ -85,9 +102,9 @@ public class DiceManager : MonoBehaviour
         ChangeDiceColor(currentDiceColor);
     }
 
+    //Change color method
     public void ChangeDiceColor(string color)
     {
-        bool textureHasBeenSet = false;
         switch (color)
         {
             case "white":
@@ -95,10 +112,6 @@ public class DiceManager : MonoBehaviour
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.white;
-                    if(textureHasBeenSet == false)
-                    {
-                        textureHasBeenSet = true;
-                    }
                 }
                 break;
             case "red":
@@ -106,10 +119,6 @@ public class DiceManager : MonoBehaviour
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.red;
-                    if (textureHasBeenSet == false)
-                    {
-                        textureHasBeenSet = true;
-                    }
                 }
                 break;
             case "black":
@@ -117,10 +126,6 @@ public class DiceManager : MonoBehaviour
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.black;
-                    if (textureHasBeenSet == false)
-                    {
-                        textureHasBeenSet = true;
-                    }
                 }
                 break;
             case "alien":
@@ -128,10 +133,6 @@ public class DiceManager : MonoBehaviour
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.alien;
-                    if (textureHasBeenSet == false)
-                    {
-                        textureHasBeenSet = true;
-                    }
                 }
                 break;
             case "blue":
@@ -139,15 +140,12 @@ public class DiceManager : MonoBehaviour
                 foreach (DraggableDice dd in diceList)
                 {
                     dd.GetComponent<MeshRenderer>().material = dd.diceMaterials.blue;
-                    if (textureHasBeenSet == false)
-                    {
-                        textureHasBeenSet = true;
-                    }
                 }
                 break;
         }
     }
 
+    //Method to be used on UI Roll Button
     public void RollButton()
     {
         if(canRoll == true && diceList.Count != 0)
@@ -169,6 +167,7 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+    //Checks if dice result is valid. If not, a reroll takes place
     public IEnumerator WaitForResult()
     {
         bool allResultsReady = true;
@@ -211,6 +210,8 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+
+    //Displays final result if all die have a valid result int
     public void DisplayResult()
     {
         resultText.text = "";
@@ -241,6 +242,7 @@ public class DiceManager : MonoBehaviour
         canRoll = true;
     }
 
+    //Clears dice
     public void ClearDices()
     {
             if(resultWaitExpiration >= 1)
@@ -265,9 +267,9 @@ public class DiceManager : MonoBehaviour
             {
                 b.interactable = true;
             }
-
     }
 
+    //Makes fail sentence appear if too many rerolls take place
     public IEnumerator FailSentenceSequence()
     {
         failSentences[currentFail].SetActive(true);
@@ -279,11 +281,14 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+
+    //Load URL method to make website appear
     public void LoadURL(string url)
     {
         Application.OpenURL(url);
     }
 
+    //Sets dice limit depending on platform
     protected void SetDiceLimit()
     {
 #if UNITY_STANDALONE_WIN || UNITY_WEBGL
@@ -293,6 +298,7 @@ public class DiceManager : MonoBehaviour
 #endif
     }
 
+    //Checks if max amount of dice have already been spawned
     protected bool HasDiceLimitBeenReached()
     {
         if(diceList.Count == diceLimit)
@@ -310,41 +316,18 @@ public class DiceManager : MonoBehaviour
         }
     }
 
+    //Quits app
     public void ExitApp()
     {
         Application.Quit();
     }
 
-
+    //Update method continuously checks accelerometer for shake roll
     private void Update()
     {
         if (Input.acceleration.x > 3f)
         {
             RollButton();
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            RollButton();
-        }
-
-#if UNITY_EDITOR
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            ChangeDiceColor("white");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            ChangeDiceColor("red");
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            ChangeDiceColor("black");
-        }
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            failAudioSource.Play();
-        }
-#endif
     }
 }
